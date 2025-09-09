@@ -43,8 +43,12 @@ async def rb_list(ctx:commands.Context):
     _params = Parameters.Parameters(challongeToken) 
     torneios = Requests.api.GET(urlChallonge,"tournaments.json",_params)
     nomes = [t["tournament"]["name"] for t in torneios]  # type: ignore
-    mensagem = "\n".join(f"- {nome}" for nome in nomes)
-    await ctx.reply(f"Esses são os torneios ativos:\n{mensagem}")
+    mensagem = "\n".join(f"🏟️ **{nome}**" for nome in nomes)
+    await ctx.reply(
+        f"✨ **Torneios Ativos no Momento:** ✨\n\n"
+        f"{mensagem}\n\n"
+        f"🎯 Escolha o seu e prepare-se para competir! 💪🔥"
+    )
 
 @bot.command()
 async def rb_create_ad(ctx:commands.Context,date_str:str,hora_str:str,rounds:int,sig_cap:int,*,name:str):
