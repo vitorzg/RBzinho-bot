@@ -5,6 +5,8 @@ import os
 import Parameters
 import Requests
 import json
+from utils.GeraId import gera_id
+
 
 # Pré COnfig
 
@@ -21,9 +23,6 @@ bot = commands.Bot(".", intents = intents)
 async def on_ready():
     print("Bot Ready")
     
-# @bot.command()
-# async def testy(ctx:commands.Context):
-#     await ctx.reply("Testado hardware")
 
 @bot.command()
 async def listTor(ctx:commands.Context):
