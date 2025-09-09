@@ -16,6 +16,17 @@ challongeToken = str(os.getenv("CHALLONGE_API_TOKEN"));
 urlChallonge = "https://api.challonge.com/v1/"
 intents = discord.Intents.all()
 bot = commands.Bot(".", intents = intents)
+arquivo = "data.json"
+
+if not os.path.exists(arquivo):
+    dados_iniciais = {}
+
+    with open(arquivo, "w", encoding="utf-8") as f:
+        json.dump(dados_iniciais, f, indent=4, ensure_ascii=False)
+
+    print(f"Arquivo '{arquivo}' criado com sucesso!")
+else:
+    print(f"Arquivo '{arquivo}' já existe.")
 
 # Commands
 
